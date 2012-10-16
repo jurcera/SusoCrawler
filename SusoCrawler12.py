@@ -14,7 +14,7 @@ links = [link['href'] for link
 
 parser = argparse.ArgumentParser(description ="Let's craaaawl the Internet ")
 parser.add_argument('url', nargs =1, help='target URL')
-parser.add_argument('-n', '--number-of-levels', type=int, default=1, help='how deep the craaaawl will go')
+parser.add_argument('-n', '--number-of-levels', type=int, default=1, help='Profundidad de busqueda')
 args = parser.parse_args()
 target_url = args.url.pop()
 deep = args.number_of_levels
