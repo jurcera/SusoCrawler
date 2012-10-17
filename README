@@ -1,4 +1,28 @@
 Proyecto Crawler para la asignatura DevTools del Master de Software Libre de la URJC - 2012
 
-SusoCrawler12
+SusoCrawler12 es una aplicación en python que se encarga de buscar en una url dada
+todos los enlaces y seguirlos para obtener nuevos enlaces según el grado de profundidad
+que se le indique.
 
+- Ejecución de la aplicion
+
+Para que se ejecute la aplicación debemos tener conexión a Internet.
+
+La aplicación recibe los siguientes parámetros:
+
+Numero de niveles: Este parámetro es opcional y le indica a la aplicación la profundidad de búsqueda. 
+Por defecto es 1 y para indicar un número distinto hay que hacerlo de alguna de las siguientes formas:
+-n {numero}, ejemplo: -n 5
+--number-of-levels {numero}, ejemplo: --number-of-levels 5
+
+URL de búsqueda: Este parámetro es obligatorio y le indica a la aplicación la url donde empezar la búsqueda. 
+El formato correcto de este parámetro debe comenzar por http://. Por ejemplo: http://www.urcera.com
+
+
+Para ejecutar la aplicación desde un entorno tipo Unix se realiza ejecutando el siguiente comando desde una 
+ventana de terminal:
+
+SusoCrawler12.py -n 2 http://www.urcera.com/
+
+Nota: La URL y la profundidad se pueden modificar según se desee pero hay que tener cuidado con la profundidad
+ya que si es demasiado alta (mayor de 10) el tiempo de búsqueda se puede hacer extremadamente grande.
