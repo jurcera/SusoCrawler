@@ -4,7 +4,7 @@ SusoCrawler12 es una aplicación en python que se encarga de buscar en una url d
 todos los enlaces y seguirlos para obtener nuevos enlaces según el grado de profundidad
 que se le indique.
 
-- Ejecución de la aplicion
+- Ejecución de la aplicación
 
 Para que se ejecute la aplicación debemos tener conexión a Internet.
 
