@@ -1,17 +1,10 @@
+#! /usr/bin/python
+# coding=UTF-8
+
+
 import urllib2
 from BeautifulSoup import BeautifulSoup as Soup
 import argparse
-
-def completar_url(url_test):
- 
-    url_test = str(url_test.encode('utf-8'))
-    
-    if url_test.startswith("/"):
-        url_test = url_to_check + url_test
-    elif url_test.startswith("./"):
-        url_test = url_to_check + url_test
-        
-    return url_test
 
 def descargar_html(target_url):
 
@@ -34,12 +27,17 @@ def extraer_enlaces(codigo_html):
 def crawler_url(url_to_check,idx_deep):
     while idx_deep <= deep:
         idx_deep = idx_deep + 1
-        url_ok = completar_url(url_to_check)
-        codigo_fuente = descargar_html(url_ok)
+        codigo_fuente = descargar_html(url_to_check)
         enlaces = extraer_enlaces(codigo_fuente)
         for enlace in enlaces:
-            print str(idx_deep-1) + " " + enlace
-            crawler_url(enlace,idx_deep)
+            if enlace.startswith("/"):
+                enlace = url_to_check + enlace
+            elif enlace.startswith("#"):
+                enlace = "novalido"
+            
+            if enlace != "novalido":
+                print str(idx_deep-1) + " " + enlace
+                crawler_url(enlace,idx_deep)
 
              
 parser = argparse.ArgumentParser(description ="Capturador de urls en Internet")
